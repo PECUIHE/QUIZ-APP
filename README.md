@@ -34,3 +34,6 @@ The project can be viewed using this link (url - https://pecuihe.github.io/QUIZ-
     text-decoration: none;
   }
 </style>
+
+nextBtn.addEventListener("click",nextQuestion); --> addEventListener method
+nextBtn.onclick = nextQuestion; --> (onclick method)

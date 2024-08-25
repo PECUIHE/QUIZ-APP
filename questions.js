@@ -49,7 +49,7 @@ const questions = [
       answer: "1"
     }
   ];
-
-  export default questions;
+  export {questions};
+  // export default questions;
 
   

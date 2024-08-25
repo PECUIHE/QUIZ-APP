@@ -26,7 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
     border: 10px solid #04061D;
     border-radius: 30px;
     /* box-shadow: 0px 2px 40px #5e4bd8; */
@@ -35,7 +35,6 @@
   .landing-page header {
     display: flex;
     flex-direction: column;
-    gap: 20px;
   }
 
   .landing-page header .logo {
