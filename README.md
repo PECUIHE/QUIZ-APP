@@ -15,3 +15,22 @@ This project is publicly published on [GitHub] (https://github.com/PECUIHE/QUIZ-
 
 The project can be viewed using this link (url - https://pecuihe.github.io/QUIZ-APP/).
 
+<div class="attribution">
+    Challenge by
+    <a href="#" target="_blank"
+      >MatriksHub BootCamp</a
+    >. Coded by <a href="https://github.com/PECUIHE">PECUIHE</a>.
+</div>
+<style>
+  .attribution {
+    color: #646FF0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  .attribution a {
+    color: #d3d3d3;
+    text-decoration: none;
+  }
+</style>
