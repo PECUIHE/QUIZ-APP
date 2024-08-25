@@ -11,7 +11,7 @@ These instructions are:
 4. For each correct answer the user will be rewarded with 1 point;
 5. The user's total score will be displayed at the end of the quiz.
 
-This project is publicly published on [GitHub] (https://github.com/PECUIHE)
+This project is publicly published on [GitHub] (https://github.com/PECUIHE/QUIZ-APP.git).
 
-The project can be viewed using this link (url - https://)
+The project can be viewed using this link (url - https://pecuihe.github.io/QUIZ-APP/).
 
