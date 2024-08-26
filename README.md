@@ -35,5 +35,28 @@ The project can be viewed using this link (url - https://pecuihe.github.io/QUIZ-
   }
 </style>
 
-nextBtn.addEventListener("click",nextQuestion); --> addEventListener method
-nextBtn.onclick = nextQuestion; --> (onclick method)
+nextBtn.addEventListener("click",nextQuestion); -----> (addEventListener method)
+nextBtn.onclick = nextQuestion; -----> (onclick method)
+
+const handleStartQuizBtn = () => {
+  wrapper.style.transform = "scale(1)"
+  wrapper.style.transform = "translate(-15%)"
+  wrapper.style.width = "320px"
+  instructionCard.style.transform = "scale(0)"
+  instructionCard.style.width = "0"
+  startQuiz();
+}; -------> (arrow function);   
+startQuizBtn.onclick = handleStartQuizBtn; --------> (onclick method);
+N.B: arrow function comes with onclick method;
+
+
+
+startQuizBtn.addEventListener("click", () => {
+  wrapper.style.transform = "scale(1)"
+  wrapper.style.transform = "translate(-15%)"
+  wrapper.style.width = "320px"
+  instructionCard.style.transform = "scale(0)"
+  instructionCard.style.width = "0"
+  startQuiz();
+});-------------->addEventListener method;
+
