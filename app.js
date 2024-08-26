@@ -47,8 +47,9 @@ startBtn.onclick = handleStartBtn;
 const handleInstructionExit = () => {
   instructionCard.style.transform = "scale(0)"
   instructionCard.style.width = "0"
-  landingPage.style.width = "350px"
+  landingPage.style.width = "320px"
   landingPage.style.transform = "scale(1)"
+  landingPage.style.transform = "translate(10px)"
   instructionExit();
 };
 
@@ -93,7 +94,8 @@ const handleExitQuiz = () => {
   unattemptedQuestion = 0,
   wrongQuestion = 0;
   landingPage.style.transform = "scale(1)"
-  landingPage.style.width = "350px"
+  landingPage.style.transform = "translate(10px)"
+  landingPage.style.width = "320px"
   exitQuiz();
 };
 

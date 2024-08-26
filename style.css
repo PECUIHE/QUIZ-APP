@@ -8,17 +8,17 @@
   }
 
   body {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./assets/image/bg-desktop.svg), linear-gradient(45deg,#4A52AF,#10133D,#04061D,#4A52AF,#04061D,#10133D,#4A52AF,#04061D,#10133D);
+    background: linear-gradient(45deg,#4A52AF,#10133D,#04061D,#4A52AF,#04061D,#10133D,#4A52AF,#04061D,#10133D);
     height: 100vh;
-    overflow: hidden;
   }
 
   .landing-page {
-    width: 350px;
+    width: 100%;
+    transform: translate(10px);
+    max-width: 320px;
     height: 98vh;
     padding: 20px;
     background: #5e4bd8;
@@ -29,7 +29,7 @@
     gap: 50px;
     border: 10px solid #04061D;
     border-radius: 30px;
-    /* box-shadow: 0px 2px 40px #5e4bd8; */
+    overflow: hidden;
   }
 
   .landing-page header {
@@ -99,7 +99,7 @@
 
   .quiz-wrapper {
     display: grid;
-    width: 0;
+    width: 0%;
     height: 95vh;
     background: #fff;
     transform: scale(0);
@@ -111,7 +111,7 @@
     position: relative;
     display: grid;
     transform: scale(0);
-    width: 0;
+    width: 0%;
     height: 95vh;
     padding: 10px;
     overflow: hidden;
@@ -177,7 +177,7 @@
   }
 
   .quiz-wrapper header {
-    font-size: 18px;
+    font-size: 14px;
     text-transform: uppercase;
     padding: 5px 12px;
     display: flex;
@@ -194,6 +194,7 @@
     border-radius: 3px;
     align-items: center;
     font-weight: bold;
+    font-size: 14px;
   }
 
   .Timer p:last-child {
@@ -201,12 +202,11 @@
     color: #fff;
     padding: 3px;
     width: 40px;
-    font-weight: 800;
+    font-weight: bold;
     text-align: center;
   }
 
   .timer-progress {
-    width: 100%;
     height: 5px;
     background: #fff;
     margin-bottom: 5px;
@@ -221,13 +221,13 @@
 
   .question-container {
     padding: 20px 12px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     width: 100%;
   }
 
   .option-container {
-    padding: 10px 12px;
+    padding: 8px 12px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -236,7 +236,6 @@
 
   .option-container option {
     padding: 0 10px;
-    font-weight: 450;
     width: 100%;
     height: 50px;
     border: 1px solid #6184FA;
@@ -256,7 +255,7 @@
   }
 
   .status{
-    padding:8px 12px;
+    padding:6px 12px;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -268,15 +267,16 @@
     align-items: center;
     gap: 4px;
     font-weight: bold;
+    font-size: 12px;
   }
 
   .btn button {
-    padding: 8px 18px;
+    padding: 6px 12px;
     background: #5F84FF;
     border: none;
     font-size: 16px;
     color: #fff;
-    font-weight: 600;
+    font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
     display: none;
@@ -291,7 +291,7 @@
     height: 95vh;
     overflow: hidden;
     transform: scale(0);
-    width: 0;
+    width: 0%;
     background: #fff;
     border-radius: 5px;
   }
@@ -306,11 +306,13 @@
 
   .congrats {
     color: #108FFF;
+    font-size: 14px;
     text-align: center;
     padding: 5px;
   }
 
   .message p {
+    font-size: 14px;
     text-align: center;
   }
 
