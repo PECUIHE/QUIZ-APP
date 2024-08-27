@@ -18,7 +18,7 @@
   .landing-page {
     width: 100%;
     transform: translate(10px);
-    max-width: 320px;
+    max-width: 350px;
     height: 98vh;
     padding: 20px;
     background: #5e4bd8;
@@ -106,7 +106,7 @@
     background: #fff;
     transform: scale(0);
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
   }
 
   .instruction {
@@ -296,7 +296,7 @@
     width: 0%;
     max-width: 320px;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
   }
 
   .result-card header {

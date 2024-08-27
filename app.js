@@ -33,7 +33,7 @@ let timer,
 
 const handleStartBtn = () => {
   instructionCard.style.transform = "scale(1)"
-  instructionCard.style.transform = "translate(-10%)"
+  instructionCard.style.transform = "translate(-20px)"
   instructionCard.style.width = "320px"
   instructionCard.style.opacity = "1"
   landingPage.style.width = "0"
@@ -47,7 +47,7 @@ startBtn.onclick = handleStartBtn;
 const handleInstructionExit = () => {
   instructionCard.style.transform = "scale(0)"
   instructionCard.style.width = "0"
-  landingPage.style.width = "320px"
+  landingPage.style.width = "350px"
   landingPage.style.transform = "scale(1)"
   landingPage.style.transform = "translate(10px)"
   // instructionExit();
@@ -58,7 +58,7 @@ instructionExit.onclick = handleInstructionExit;
 
 const handleStartQuizBtn = () => {
   wrapper.style.transform = "scale(1)"
-  wrapper.style.transform = "translate(-15%)"
+  wrapper.style.transform = "translate(-30px)"
   wrapper.style.width = "320px"
   instructionCard.style.transform = "scale(0)"
   instructionCard.style.width = "0"
@@ -72,7 +72,7 @@ const handleReplayQuiz = () => {
   resultCard.style.width = "0"
   resultCard.style.transform = "scale(0)"
   wrapper.style.transform = "scale(1)"
-  wrapper.style.transform = "translate(-15%)"
+  wrapper.style.transform = "translate(-30px)"
   wrapper.style.width = "320px"
   currentQuestion = 0
   score = 0,
@@ -95,7 +95,7 @@ const handleExitQuiz = () => {
   wrongQuestion = 0;
   landingPage.style.transform = "scale(1)"
   landingPage.style.transform = "translate(10px)"
-  landingPage.style.width = "320px"
+  landingPage.style.width = "350px"
   // exitQuiz();
 };
 
@@ -158,127 +158,126 @@ const questions = [
 
 
 function startQuiz() {
-    // Display the first question and its options
-    displayQuestion(currentQuestion);
+  // Display the first question and its options
+  displayQuestion(currentQuestion);
 
-    // Start the timer
-    timer = setInterval(updateTimer, 1000);
+  // Start the timer
+  timer = setInterval(updateTimer, 1000);
 
-    // Update the progress bar
-    updateProgress();
+  // Update the progress bar
+  updateProgress();
 
-    nextBtn.innerHTML = "Next ---&#10095";
-    // displayQuestion();
+  nextBtn.innerHTML = "Next ---&#10095";
+  // displayQuestion();
 };
 
 
 function displayQuestion(questionIndex) {
   updateProgress();
-    // Get the question and options from the questions array
-    let question = questions[questionIndex].question;
-    let options = questions[questionIndex].options;
+  // Get the question and options from the questions array
+  let question = questions[questionIndex].question;
+  let options = questions[questionIndex].options;
 
-    // Display the question and options in their respective containers
-    questionElement.innerHTML = question;
+  // Display the question and options in their respective containers
+  questionElement.innerHTML = question;
 
-    for (let i = 0; i < options.length; i++) {
-        let option = `<option onclick = checkAnswer(${i})>${options[i]}</option>`
+  for (let i = 0; i < options.length; i++) {
+    let option = `<option onclick = checkAnswer(${i})>${options[i]}</option>`
 
-        answerContainer.insertAdjacentHTML("beforeend",option);        
-    };
+    answerContainer.insertAdjacentHTML("beforeend",option);        
+  };
 };
 
 
 function checkAnswer(selectedIndex) {
 
-    // Get the selected answer from the user
-    attemptQuestion++;
-    answerContainer.style.pointerEvents="none"
-    clearInterval(timer);
-    let selectedAnswer = questions[currentQuestion].options[selectedIndex];
+  // Get the selected answer from the user
+  attemptQuestion++;
+  answerContainer.style.pointerEvents="none"
+  clearInterval(timer);
+  let selectedAnswer = questions[currentQuestion].options[selectedIndex];
 
-    // Get the correct answer from the questions array
-    let correctAnswer = questions[currentQuestion].options[questions[currentQuestion].answer];
+  // Get the correct answer from the questions array
+  let correctAnswer = questions[currentQuestion].options[questions[currentQuestion].answer];
+    
+  // Compare the selected answer to the correct answer
+  if (selectedAnswer === correctAnswer) {
+    score++;
+    setTimeout( () => {
+      document.querySelectorAll("option")[selectedIndex].style.backgroundColor = "#37BB1169"
+      document.querySelectorAll("option")[selectedIndex].style.color = "#fff"
+      document.querySelectorAll("option")[selectedIndex].style.borderColor = "green"
+    }, 100);
+
+      userAnswers[currentQuestion] = selectedIndex;
+
+      // Display the correct answer and highlight it in green
       
-    // Compare the selected answer to the correct answer
-    if (selectedAnswer === correctAnswer) {
-      score++;
-     setTimeout( () => {
-       document.querySelectorAll("option")[selectedIndex].style.backgroundColor = "#37BB1169"
-       document.querySelectorAll("option")[selectedIndex].style.color = "#fff"
-       document.querySelectorAll("option")[selectedIndex].style.borderColor = "green"
-     }, 100);
-     nextBtn.style.display = "block";
-
-        userAnswers[currentQuestion] = selectedIndex;
-
-        // Display the correct answer and highlight it in green
-        
-    } else {
-      wrongQuestion++;
-       setTimeout( () => {
-       document.querySelectorAll("option")[selectedIndex].style.backgroundColor = "#B6141469"
-       document.querySelectorAll("option")[selectedIndex].style.color = "#fff"
-       document.querySelectorAll("option")[selectedIndex].style.borderColor = "red"
+  } else {
+    wrongQuestion++;
+    setTimeout( () => {
+      document.querySelectorAll("option")[selectedIndex].style.backgroundColor = "#B6141469"
+      document.querySelectorAll("option")[selectedIndex].style.color = "#fff"
+      document.querySelectorAll("option")[selectedIndex].style.borderColor = "red"
       document.querySelectorAll("option")[questions[currentQuestion].answer].style.backgroundColor="#37BB1169"
       document.querySelectorAll("option")[questions[currentQuestion].answer].style.color="#fff"
       document.querySelectorAll("option")[questions[currentQuestion].answer].style.borderColor="green"
-     }, 100);
-    };
-    nextBtn.style.display = "block";
+    }, 100); 
+  };
+  nextBtn.style.display = "block";
 };
 
 
 function nextQuestion() {
-    // Check if the user has answered all questions
-    answerContainer.style.pointerEvents="initial"
-    time.innerHTML="15"
-    updateProgress()
-    timer = setInterval(updateTimer, 1000);
-    answerContainer.innerHTML = ""
-    console.log('current question: ',currentQuestion, "question length: ", questions.length);
-    if (currentQuestion === questions.length - 1) {
-      
-      resultCard.style.width = "320px"
-      resultCard.style.transform = "scale(1)"
-      resultCard.style.transform = "translate(-15%)"
-      totalScore.innerHTML = questions.length
-      yourScore.innerHTML = score
-      attempted.innerHTML = attemptQuestion
-      unattempted.innerHTML = unattemptedQuestion
-      wrong.innerHTML = wrongQuestion
-      wrapper.style.width = "0"
-      wrapper.style.transform = "scale(0)"
-        endQuiz();
-    } else {
-        // If there are more questions, update the currentQuestion variable and display the next question and its options
-        currentQuestion++;
-        currentQuestionNum.innerHTML = currentQuestion + 1
-        displayQuestion(currentQuestion);
-    };
-    nextBtn.style.display = "none";
+  // Check if the user has answered all questions
+  answerContainer.style.pointerEvents="initial"
+  time.innerHTML="15"
+  updateProgress()
+  timer = setInterval(updateTimer, 1000);
+  answerContainer.innerHTML = ""
+  console.log('current question: ',currentQuestion, "question length: ", questions.length);
+  if (currentQuestion === questions.length - 1) {
+    
+    resultCard.style.width = "320px"
+    resultCard.style.transform = "scale(1)"
+    resultCard.style.transform = "translate(-30px)"
+    totalScore.innerHTML = questions.length
+    yourScore.innerHTML = score
+    attempted.innerHTML = attemptQuestion
+    unattempted.innerHTML = unattemptedQuestion
+    wrong.innerHTML = wrongQuestion
+    wrapper.style.width = "0"
+    wrapper.style.transform = "scale(0)"
+      endQuiz();
+  } else {
+      // If there are more questions, update the currentQuestion variable and display the next question and its options
+      currentQuestion++;
+      currentQuestionNum.innerHTML = currentQuestion + 1
+      displayQuestion(currentQuestion);
+  };
+  nextBtn.style.display = "none";
 };
 
 
 function updateTimer() {
-    // Decrement the timer by 1 second
-    let remainingTime = parseInt(time.innerHTML) - 1;
+  // Decrement the timer by 1 second
+  let remainingTime = parseInt(time.innerHTML) - 1;
 
-    // Update the timer display
-    time.innerHTML = remainingTime > 9 ? remainingTime : "0" + remainingTime;
+  // Update the timer display
+  time.innerHTML = remainingTime > 9 ? remainingTime : "0" + remainingTime;
 
-    // Update the progress bar
-    
-    // If the timer reaches 0, display next btn
-    if (remainingTime === 0) {
-      unattemptedQuestion++;
-      document.querySelectorAll("option")[questions[currentQuestion].answer].style.backgroundColor = "#37BB1169"
-      document.querySelectorAll("option")[questions[currentQuestion].answer].style.color = "#fff"
-      document.querySelectorAll("option")[questions[currentQuestion].answer].style.borderColor = "green"
-      answerContainer.style.pointerEvents = "none"
-      clearInterval(timer)
-      nextBtn.style.display = "block"
-    };
+  // Update the progress bar
+  
+  // If the timer reaches 0, display next btn
+  if (remainingTime === 0) {
+    unattemptedQuestion++;
+    document.querySelectorAll("option")[questions[currentQuestion].answer].style.backgroundColor = "#37BB1169"
+    document.querySelectorAll("option")[questions[currentQuestion].answer].style.color = "#fff"
+    document.querySelectorAll("option")[questions[currentQuestion].answer].style.borderColor = "green"
+    answerContainer.style.pointerEvents = "none"
+    clearInterval(timer)
+    nextBtn.style.display = "block"
+  };
 };
 
 
@@ -287,10 +286,10 @@ function updateProgress() {
 };
 
 
-function endQuiz() {
-    // Stop the timer
-    clearInterval(timer);
-    // Hide the question and option containers  
+function endQuiz() { 
+  // Stop the timer
+  clearInterval(timer);
+ // Hide the question and option containers  
 };
 
 
@@ -298,4 +297,7 @@ nextBtn.onclick = nextQuestion;
 
 totalQuestion.innerHTML = questions.length;
 currentQuestionNum.innerHTML=currentQuestion + 1;
+
+
+
 

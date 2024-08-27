@@ -15,12 +15,15 @@ This project is publicly published on [GitHub] (https://github.com/PECUIHE/QUIZ-
 
 The project can be viewed using this link (url - https://pecuihe.github.io/QUIZ-APP/).
 
+
+<!-- 
 <div class="attribution">
     Challenge by
     <a href="#" target="_blank"
       >MatriksHub BootCamp</a
     >. Coded by <a href="https://github.com/PECUIHE">PECUIHE</a>.
 </div>
+
 <style>
   .attribution {
     color: #646FF0;
@@ -35,6 +38,7 @@ The project can be viewed using this link (url - https://pecuihe.github.io/QUIZ-
   }
 </style>
 
+<script>
 nextBtn.addEventListener("click",nextQuestion); -----> (addEventListener method)
 nextBtn.onclick = nextQuestion; -----> (onclick method)
 
@@ -59,4 +63,4 @@ startQuizBtn.addEventListener("click", () => {
   instructionCard.style.width = "0"
   startQuiz();
 });-------------->addEventListener method;
-
+</script> -->
