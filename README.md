@@ -1,6 +1,6 @@
 # MatriksHub Bootcamp Academy - Quiz App
 
-This is a mobile simple JavaScript quiz app that displays 10 JavaScript questions with four options (A-D) to select the correct answer from and also provide the result in a dashboard at the end of each section.
+This is a simple mobile JavaScript quiz app that displays 10 JavaScript questions with four options (A-D) to select the correct answer from and also provide the result in a dashboard at the end of each section.
 
 There are some rules stated about the quiz which are indicated as the instructions.
 
