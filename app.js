@@ -4,7 +4,7 @@ instructionCard = document.querySelector(".instruction"),
 instructionExit = document.querySelectorAll(".instruction button")[0],
 startQuizBtn = document.querySelectorAll(".instruction button")[1],
 wrapper = document.querySelector(".quiz-wrapper"),
-nextBtn = document.querySelector(".btn button"),
+nextBtn = document.querySelector(".next-btn button"),
 resultCard = document.querySelector(".result-card"),
 time = document.querySelectorAll(".Timer p")[1],
 progressBar = document.querySelector(".inner"),
@@ -33,12 +33,12 @@ let timer,
 
 const handleStartBtn = () => {
   instructionCard.style.transform = "scale(1)"
-  instructionCard.style.transform = "translate(-12%)"
+  instructionCard.style.transform = "translate(-10%)"
   instructionCard.style.width = "320px"
   instructionCard.style.opacity = "1"
   landingPage.style.width = "0"
   landingPage.style.transform = "scale(0)"
-  startBtn();
+  // startBtn();
 };
 
 startBtn.onclick = handleStartBtn;
@@ -50,7 +50,7 @@ const handleInstructionExit = () => {
   landingPage.style.width = "320px"
   landingPage.style.transform = "scale(1)"
   landingPage.style.transform = "translate(10px)"
-  instructionExit();
+  // instructionExit();
 };
 
 instructionExit.onclick = handleInstructionExit;
@@ -96,7 +96,7 @@ const handleExitQuiz = () => {
   landingPage.style.transform = "scale(1)"
   landingPage.style.transform = "translate(10px)"
   landingPage.style.width = "320px"
-  exitQuiz();
+  // exitQuiz();
 };
 
 exitQuiz.onclick = handleExitQuiz;
@@ -145,13 +145,13 @@ const questions = [
     answer: "0"
   },
   {
-    question: "9.) How can you add a comment in a JavaScript?",
+    question: "9.) How can you add a comment in JavaScript?",
     options: ["A.) !--This is a comment--", "B.) 'This is a comment", "C.) This is a comment\\", "D.) //This is a comment"],
     answer: "3"
   },
   {
     question: "10.) How to insert a comment that has more than one line?",
-    options: ["A.) !--This comment has more than one line--", "B.) /*This comment has more than one line*/", "C.) /This comment has more than one line/", "D.) \\This comment has more than one line\\"],
+    options: ["A.) !--Comment more than 1 line--", "B.) /*Comment more than 1 line*/", "C.) /Comment more than 1 line/", "D.) \\Comment more than 1 line\\"],
     answer: "1"
   }
 ];
@@ -168,7 +168,7 @@ function startQuiz() {
     updateProgress();
 
     nextBtn.innerHTML = "Next ---&#10095";
-    displayQuestion();
+    // displayQuestion();
 };
 
 
@@ -236,7 +236,9 @@ function nextQuestion() {
     updateProgress()
     timer = setInterval(updateTimer, 1000);
     answerContainer.innerHTML = ""
+    console.log('current question: ',currentQuestion, "question length: ", questions.length);
     if (currentQuestion === questions.length - 1) {
+      
       resultCard.style.width = "320px"
       resultCard.style.transform = "scale(1)"
       resultCard.style.transform = "translate(-15%)"
